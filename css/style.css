@@ -217,7 +217,16 @@ body {
     z-index: 1;
 }
 
+
 /* reszta do docięcia */
+.main-information {
+    padding: 65px 0;
+}
+
+.main-section {}
+
+
+
 
 
 .form{
@@ -292,7 +301,7 @@ textarea.form-control {
     margin-right: 10px;
 }
 
-.form-checkbox-mark:checked + .form-checkbox-mark {
+.form-checkbox-input:checked + .form-checkbox-mark {
     background: url(../images/form_ok.jpg);
     background-position: center;
     background-repeat: no-repeat;
