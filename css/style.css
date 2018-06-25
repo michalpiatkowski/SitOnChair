@@ -217,6 +217,19 @@ body {
     z-index: 1;
 }
 
+.banner-slide--active .banner-slide-img {
+    top: 0;
+    left: 0;
+    opacity: 1;
+}
+
+.banner-slide--active .banner-slide-cnt {
+    opacity: 1;
+    top: 0;
+}
+
+.banner-slide--active .slide-title {
+}
 
 /* reszta do docięcia */
 
@@ -236,22 +249,31 @@ body {
 
 .info-box-cnt {
     background: rgba(255,255,255,0.5);
-    width: 100%;
-    left: 0;
     bottom: 10px;
+    left: 0;
     padding: 10px 15px;
     position: absolute;
+    width: 100%;
 }
 
 .info-box-title {
+    border-bottom: 7px solid var(--color);
     font-size:15px;
     font-weight: 600;
-    border-bottom: 7px solid var(--color);
     width:50%;
-    
-    
-   
 }
+
+.info-box-text {
+    border: 1px solid #ddd;
+    height: 245px;
+    padding: 15px;
+}
+
+.info-box-description {
+    margin-top: 20px;
+}
+
+
 
 .main-section {}
 
