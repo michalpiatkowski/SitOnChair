@@ -1,5 +1,6 @@
 :root {
     --color: #24BA9F;
+    --color: #1f8976;
 }
 
 * {
@@ -23,6 +24,13 @@ body {
     text-decoration: none;
     text-transform: uppercase;
     border-radius: 7px;
+    display: inline-block;
+    cursor: pointer;
+    transition: 0.5s background;
+}
+
+.btn:hover {
+    background: var(--color2);
 }
 
 .visuallyhidden { /* ukrywa labele */
@@ -43,6 +51,8 @@ body {
     text-transform: uppercase;
     padding-bottom: 15px;
     position: relative;
+    margin-top: 0;
+    margin-bottom: 40px;
 }
 
 .section-title:after {
@@ -55,11 +65,26 @@ body {
     bottom: 0;
 }
 
+.main-section {
+    padding: 70px 0;
+}
+
+.row {
+    margin-left: -15px;
+    margin-right: -15px;
+    display: flex;
+}
+
+.row .col {
+    padding: 0 15px;
+    flex-grow: 1;
+}
+
 .page-header {
     height: 40px;
     background: black;
     position: relative;
-    z-index: 1000000;
+    z-index: 10000;
 }
 
 .page-header .container {
@@ -81,9 +106,7 @@ body {
     color: var(--color);
 }
 
-.page-nav {
-}
-
+.page-nav {}
 .page-nav-list {
     list-style: none;
     margin: 0;
@@ -112,14 +135,13 @@ body {
 
 .page-nav-sublist {
     list-style: none;
-    padding: 10;
+    padding: 10px 20px;
     margin: 0;
     position: absolute;
     top: 60px;
     left: 50%;
     transform: translate(-50%, 0);
     background: #000;
-    padding: 10px;
     opacity: 0;
     visibility: hidden;
     transition: 0.5s opacity;
@@ -136,7 +158,6 @@ body {
 }
 
 .page-nav-sublist-el {}
-
 .page-nav-sublist-link {
     color: #fff;
     text-decoration: none;
@@ -156,6 +177,16 @@ body {
     transform: translate(-50%, 0);
 }
 
+.page-nav-sublist:after {
+    position: absolute;
+    content: '';
+    background: transparent;
+    width: 100%;
+    height: 20px;
+    left: 0;
+    top: -20px;
+}
+
 .page-nav-list-el:hover .page-nav-sublist {
     opacity: 1;
     visibility: visible;
@@ -170,7 +201,7 @@ body {
 }
 
 .main-banner {
-    height: 500px;
+    /* height: 500px; */
     background: linear-gradient(90deg, #fff, #cecece);
 }
 
@@ -186,15 +217,20 @@ body {
     border: 0;
     font-size: 70px;
     color: var(--color);
+    cursor: pointer;
+    transition: 0.4s color;
 }
 
 .banner-prev:focus,
-.banner-next:focus {
+.banner-next:focus,
+.banner-prev:hover,
+.banner-next:hover {
+    color: var(--color2);
     outline: none;
 }
 
 .banner-next {
-    order:1;
+    order: 1;
 }
 
 .banner-slides {
@@ -210,6 +246,72 @@ body {
     height: 100%;
     opacity: 0;
     transition: 0.5s all;
+    display: flex;
+}
+
+.banner-slide-img {
+    position: relative;
+    height: 100%;
+    width: 46%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner-slide-img img {
+    position: relative;
+    max-width: 90%;
+    width: 100%;
+}
+
+.banner-slide-cnt {
+    height: 100%;
+    width: 54%;
+    box-sizing: border-box;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner-slide-title {
+    font-size: 43px;
+    font-weight: 400;
+    margin-bottom: 30px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.banner-slide-title span {
+    color: var(--color);
+}
+
+.banner-slide-cnt p {
+    font-size: 17px;
+    font-weight: normal;
+    line-height: 22px;
+    text-align: center;
+    margin: 30px -5px;
+}
+
+.banner-slide-btn {
+    font-size: 27px;
+    margin-top: 35px;
+}
+
+.banner-slide-img {
+    top: -50px;
+    opacity: 0;
+    transition: 1s ease-in-out all;
+}
+
+.banner-slide-cnt {
+    opacity: 0;
+    top: -50px;
+    position: relative;
+    transition: 0.5s 0.3s ease-in-out top, 0.5s 0.3s ease-in-out opacity;
 }
 
 .banner-slide-active {
@@ -228,8 +330,7 @@ body {
     top: 0;
 }
 
-.banner-slide--active .slide-title {
-}
+.banner-slide--active .slide-title {}
 
 /* reszta do docięcia */
 
@@ -258,14 +359,14 @@ body {
 
 .info-box-title {
     border-bottom: 7px solid var(--color);
-    font-size:15px;
+    font-size: 15px;
     font-weight: 600;
-    width:50%;
+    width: 50%;
 }
 
 .info-box-text {
     border: 1px solid #ddd;
-    height: 245px;
+    height: 226px;
     padding: 15px;
 }
 
@@ -275,10 +376,118 @@ body {
 
 
 
-.main-section {}
 
+.main-price-list {
+    background: #f1f1f1;
+    padding: 65px 0;
+}
 
+.price-box {
+    background: #f9f9f9;
+    border: 2px solid #d4d4d4;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    height: 520px;
+    justify-content: space-between;
+}
 
+.price-box-title {
+    color: var(--color);
+    font-size: 26px;
+    margin-top: 20px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.price-box-price {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 135px;
+    width: 135px;
+    border: 2px solid #d4d4d4;
+    border-radius: 50%;
+    background: #fff;
+    margin: 35px auto 30px auto;
+
+}
+
+.price-box-price-cnt {
+    display: flex;
+    color: #c2c2c2;
+}
+
+.price-box-price-cnt span {
+    font-size: 45px;
+    font-weight: 600;
+}
+
+.price-box-price-cnt sup {
+    font-size: 16px;
+    padding-top: 15px;
+}
+
+.price-box .price-text {
+    color: #c2c2c2;
+    font-size: 15px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.price-box .price-box-points {
+    list-style: none;
+    margin: 0;
+    margin-bottom: auto;
+    padding: 0;
+}
+
+.price-box .price-box-points li {
+    background: #e4e4e4;
+    color: #8f8f8f;
+    font-size: 24px;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.price-box .price-box-points li:nth-of-type(even) {
+    background: #f1f1f1;
+}
+
+.price-box .price-box-btn {
+    align-self: center;
+    margin-bottom: 20px;
+}
+
+.price-box--active {
+    background: var(--color);
+    border-color: var(--color);
+}
+
+.price-box--active .price-box-title {
+    color: #fff;
+}
+
+.price-box--active .price-box-price {
+    border-color: var(--color);
+}
+
+.price-box--active .price-box-price-cnt span,
+.price-box--active .price-box-price-cnt sup,
+.price-box--active .price-text {
+    color: var(--color);
+}
+
+.price-box--active .price-box-btn {
+    background: #fff;
+    color: var(--color);
+    transition: 0.5s all;
+}
+
+.price-box--active .price-box-btn:hover {
+    opacity: 0.7;
+}
 
 
 .form{
@@ -365,8 +574,6 @@ textarea.form-control {
     font-size: 34px;
     font-weight: bold;
     border-radius: 7px;
-    padding:20px;
-
-    
+    padding:20px;   
 }
 
