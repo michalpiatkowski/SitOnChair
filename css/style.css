@@ -16,6 +16,18 @@ body {
     margin: 0 auto;
 }
 
+.visuallyhidden { /* ukrywa labele */
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+    white-space: nowrap; /* 1 */
+}
+
 .btn {
     border: 0;
     color: #fff;
@@ -31,18 +43,6 @@ body {
 
 .btn:hover {
     background: var(--color2);
-}
-
-.visuallyhidden { /* ukrywa labele */
-    border: 0;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
-    white-space: nowrap; /* 1 */
 }
 
 .section-title {
@@ -107,6 +107,7 @@ body {
 }
 
 .page-nav {}
+
 .page-nav-list {
     list-style: none;
     margin: 0;
@@ -157,13 +158,6 @@ body {
     top: 20px;
 }
 
-.page-nav-sublist-el {}
-.page-nav-sublist-link {
-    color: #fff;
-    text-decoration: none;
-    line-height: 1.5em;
-}
-
 .page-nav-sublist:before {
     content: '';
     width: 0;
@@ -185,6 +179,13 @@ body {
     height: 20px;
     left: 0;
     top: -20px;
+}
+
+.page-nav-sublist-el {}
+.page-nav-sublist-link {
+    color: #fff;
+    text-decoration: none;
+    line-height: 1.5em;
 }
 
 .page-nav-list-el:hover .page-nav-sublist {
@@ -314,7 +315,7 @@ body {
     transition: 0.5s 0.3s ease-in-out top, 0.5s 0.3s ease-in-out opacity;
 }
 
-.banner-slide-active {
+.banner-slide--active {
     opacity: 1;
     z-index: 1;
 }
@@ -332,7 +333,6 @@ body {
 
 .banner-slide--active .slide-title {}
 
-/* reszta do docięcia */
 
 
 .main-information {
@@ -374,8 +374,11 @@ body {
     margin-top: 20px;
 }
 
-
-
+/*
+.first-chair, .second-chair {
+    display: block;
+}
+*/
 
 .main-price-list {
     background: #f1f1f1;
@@ -488,6 +491,7 @@ body {
 .price-box--active .price-box-btn:hover {
     opacity: 0.7;
 }
+
 
 
 .form{
