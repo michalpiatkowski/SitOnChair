@@ -723,7 +723,7 @@ body {
   }
   
   .showList {
-      display: none;
+      display: block;
   }
 
   .title {

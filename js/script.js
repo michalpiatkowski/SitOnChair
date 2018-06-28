@@ -55,7 +55,7 @@
         prev.addEventListener('click', prevSlide);
         next.addEventListener('click', nextSlide);
             });
-        }) 
+        })
     ();
 
 
@@ -66,18 +66,18 @@
 
     firstChair.addEventListener('mouseenter', function() {
         firstChair.style.visibility = 'hidden';
-        
+
         //firstElementChild.classList.add('info-box-img-only');
     });
-    
+
     firstChair.addEventListener('mouseleave', function() {
         firstChair.style.visibility = 'visible';
     });
-    
+
 
     secondChair.addEventListener('mouseover', function() {
         secondChair.style.visibility = 'hidden';
-        
+
         //firstElementChild.classList.add('info-box-img-only');
     });
 
@@ -92,7 +92,7 @@
     var listArrowChairType = formCalc.querySelector('span.list_arrow.chair_type');
     var listArrowChairColor = formCalc.querySelector('span.list_arrow.chair_color');
     var listArrowChairCloth = formCalc.querySelector('span.list_arrow.chair_cloth');
-    
+
     var selectChairType = formCalc.querySelector('span.chair_type');
     var selectChairColor = formCalc.querySelector('span.chair_color');
     var selectChairCloth = formCalc.querySelector('span.chair_cloth');
@@ -120,7 +120,7 @@
     var sumPatternPrice = 0;
     var sumTransportPrice = 0;
 
-    
+
     listArrowChairType.addEventListener('click', function() {
         this.nextElementSibling.classList.toggle('showList');
         for (var i = 0; i < this.nextElementSibling.children.length; i++) {
@@ -143,7 +143,7 @@
         this.nextElementSibling.children[i].addEventListener('click', function() {
             selectChairColor.innerHTML = this.innerHTML;
             chairColor.innerHTML = this.innerHTML;
-            chairColorPrice.innerHTML = this.dataset.colorPrice;    
+            chairColorPrice.innerHTML = this.dataset.colorPrice;
             sumColorPrice = 0;
             sumColorPrice = sumColorPrice + parseInt(this.dataset.colorPrice);
             sum.innerHTML = sumChairPrice + sumColorPrice + sumPatternPrice + sumTransportPrice;
@@ -158,7 +158,7 @@
                 this.nextElementSibling.children[i].addEventListener('click', function() {
                 selectChairCloth.innerHTML = this.innerHTML;
                 chairCloth.innerHTML = this.innerHTML;
-                chairPatternPrice.innerHTML = this.dataset.patternPrice;    
+                chairPatternPrice.innerHTML = this.dataset.patternPrice;
                 sumPatternPrice = 0;
                 sumPatternPrice = sumPatternPrice + parseInt(this.dataset.patternPrice);
                 sum.innerHTML = sumChairPrice + sumColorPrice + sumPatternPrice + sumTransportPrice;
@@ -182,5 +182,3 @@ checkbox.addEventListener('click', function() {
         sum.innerHTML = sumChairPrice + sumColorPrice + sumPatternPrice;
     }
 });
-
-
