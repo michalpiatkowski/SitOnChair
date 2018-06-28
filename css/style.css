@@ -492,13 +492,13 @@ body {
     opacity: 0.7;
 }
 
-
 /* kalkulator */
 
 .application {
     background-color: #f9f9f9;
     padding:30px 0;
   }
+
   .application h3 {
     color: #575757;
     font-size: 18px;
@@ -518,6 +518,7 @@ body {
   .form_calc {
     margin-top:50px;
   }
+
   .drop_down_list {
     border:1px solid #8de0d2;
     width: 280px;
@@ -529,7 +530,7 @@ body {
   }
   
   .list_label {
-    font-size: 30px;
+    font-size: 21px;
     color: #e2e2e2;
     font-family: 'ralewaylight', Arial, Tahoma, sans-serif;
   }
@@ -695,7 +696,7 @@ body {
     display:block;
     position: absolute;
     right: 14px;
-    top: 20px;
+    top: 13px;
     cursor: pointer;
   }
   
@@ -713,19 +714,25 @@ body {
     top: 54px;
     display:none;
   }
+
   .list_panel li {
     margin-top:10px;
     cursor: pointer;
     color: #585858;
+    border: 2px solid red;
   }
   
+  .showList {
+      display: none;
+  }
+
   .title {
     height: 30px;
   }
 
 /* koniec kalkulatora */ 
 
-.form{
+.form {
     display: flex;
     justify-content: space-between;
 }
