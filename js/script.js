@@ -1,7 +1,7 @@
 // slider
 
-(function () {
     document.addEventListener('DOMContentLoaded', function() {
+        
         var slider = document.querySelector('#mainSlider');
         var slides = slider.querySelectorAll('.banner-slide');
         var prev = slider.querySelector('.banner-prev');
@@ -55,8 +55,7 @@
         prev.addEventListener('click', prevSlide);
         next.addEventListener('click', nextSlide);
             });
-        })
-    ();
+        
 
 
     // chowanie bloku z nazwą
@@ -85,100 +84,75 @@
         secondChair.style.visibility = 'visible';
     });
 
+
     // kalkulator
 
-    var formCalc = document.querySelector('div.form_calc');
+var chairType = document.getElementById('chair_type');
+var chairColor = document.getElementById('chair_color');
+var chairCloth = document.getElementById('chair_cloth');
 
-    var listArrowChairType = formCalc.querySelector('span.list_arrow.chair_type');
-    var listArrowChairColor = formCalc.querySelector('span.list_arrow.chair_color');
-    var listArrowChairCloth = formCalc.querySelector('span.list_arrow.chair_cloth');
+var typeSpan = document.querySelector('.panel_left .title');
+var typeValue = document.querySelector('.panel_right .title');
 
-    var selectChairType = formCalc.querySelector('span.chair_type');
-    var selectChairColor = formCalc.querySelector('span.chair_color');
-    var selectChairCloth = formCalc.querySelector('span.chair_cloth');
+var colorSpan = document.querySelector('.panel_left .color');
+var colorValue = document.querySelector('.panel_right .color');
 
-    var checkbox = formCalc.querySelector('div.checkbox');
-    var checkboxInput = formCalc.querySelector('input[type=checkbox]');
+var clothSpan = document.querySelector('.panel_left .pattern');
+var clothValue = document.querySelector('.panel_right .pattern');
 
-    var summaryPanel = document.querySelector('div.summary_panel');
+var transportSpan = document.querySelector('.panel_left .transport');
+var transportValue = document.querySelector('.panel_right .transport');
 
-    var panelLeft = summaryPanel.querySelector('div.panel_left');
-    var panelRight = summaryPanel.querySelector('div.panel_right');
+var dropList = Array.from(document.querySelectorAll('.drop_down_list'));
+var dropListElements = Array.from(document.querySelectorAll('.drop_down_list li'));
 
-    var chairTypeSummary = panelLeft.querySelector('h4.title');
-    var chairPrice = panelRight.querySelector('h4.title');
-    var chairColor = panelLeft.querySelector('span.color');
-    var chairColorPrice = panelRight.querySelector('span.color');
-    var chairPattern = panelLeft.querySelector('span.pattern');
-    var chairPatternPrice = panelRight.querySelector('span.pattern');
-    var transport = panelLeft.querySelector('span.transport');
-    var transportPrice = panelRight.querySelector('span.transport');
-    var sum = summaryPanel.querySelector('div.sum');
+var checkbox = document.querySelector('#transport');
 
-    var sumChairPrice = 0;
-    var sumColorPrice = 0;
-    var sumPatternPrice = 0;
-    var sumTransportPrice = 0;
+var sum = document.querySelector('.sum strong');
 
 
-    listArrowChairType.addEventListener('click', function() {
-        this.nextElementSibling.classList.toggle('showList');
-        for (var i = 0; i < this.nextElementSibling.children.length; i++) {
-            this.nextElementSibling.children[i].addEventListener('click', function() {
-            selectChairType.innerHTML = this.innerHTML;
-            chairTypeSummary.innerHTML = this.innerHTML;
-            chairPrice.innerHTML = this.dataset.chairPrice;
-            sumChairPrice = 0;
-            sumChairPrice = sumChairPrice + parseInt(this.dataset.chairPrice);
-            sum.innerHTML = sumChairPrice + sumColorPrice + sumPatternPrice + sumTransportPrice;
-            this.parentElement.classList.add('showList');
+function summary() {
+    var numbers = Number(transportValue.innerText) + Number(typeValue.innerText) + Number(clothValue.innerText) + Number(colorValue.innerText);
+    sum.innerText = numbers;
+    }
+
+    dropList.forEach(function(element){
+        element.addEventListener('click', function(e) {
+           this.querySelector('.list_panel').classList.toggle('visible');
         });
-    }
-});
+     })
 
-
-    listArrowChairColor.addEventListener('click', function() {
-        this.nextElementSibling.classList.toggle('showList');
-        for (var i = 0; i < this.nextElementSibling.children.length; i++) {
-        this.nextElementSibling.children[i].addEventListener('click', function() {
-            selectChairColor.innerHTML = this.innerHTML;
-            chairColor.innerHTML = this.innerHTML;
-            chairColorPrice.innerHTML = this.dataset.colorPrice;
-            sumColorPrice = 0;
-            sumColorPrice = sumColorPrice + parseInt(this.dataset.colorPrice);
-            sum.innerHTML = sumChairPrice + sumColorPrice + sumPatternPrice + sumTransportPrice;
-            this.parentElement.classList.add('showList');
+     dropListElements.forEach(function(ev){
+        ev.addEventListener('click', function(e) {
+           var attr = this.parentElement.parentElement.getAttribute('id');
+           switch (attr) {
+              case 'chair_color':
+                 colorSpan.innerText = this.innerText;
+                 colorValue.innerText = this.dataset.price;
+                 console.log(this.dataset.price);
+                 break;
+              case 'chair_cloth':
+                 clothSpan.innerText = this.innerText;
+                 clothValue.innerText = this.dataset.price;
+                 break;
+              case 'chair_type':
+                 typeSpan.innerText = this.innerText;
+                 typeValue.innerText = this.dataset.price;
+                 break;
+              default:
+              console.log('default');
+           }
+           summary();
         });
-    }
-});
+     });
 
-    listArrowChairCloth.addEventListener('click', function() {
-        this.nextElementSibling.classList.toggle('showList');
-            for (var i = 0; i < this.nextElementSibling.children.length; i++) {
-                this.nextElementSibling.children[i].addEventListener('click', function() {
-                selectChairCloth.innerHTML = this.innerHTML;
-                chairCloth.innerHTML = this.innerHTML;
-                chairPatternPrice.innerHTML = this.dataset.patternPrice;
-                sumPatternPrice = 0;
-                sumPatternPrice = sumPatternPrice + parseInt(this.dataset.patternPrice);
-                sum.innerHTML = sumChairPrice + sumColorPrice + sumPatternPrice + sumTransportPrice;
-                this.parentElement.classList.add('showList');
-        });
-    }
-});
-
-
-checkbox.addEventListener('click', function() {
-    if (checkboxInput.checked) {
-        transport.innerHTML = "Transport";
-        transportPrice.innerHTML = checkboxInput.dataset.transportPrice;
-        sumTransportPrice = 0;
-        sumTransportPrice = sumTransportPrice + parseInt(checkboxInput.dataset.transportPrice);
-        sum.innerHTML = sumChairPrice + sumColorPrice + sumPatternPrice + sumTransportPrice;
-    } else {
-        transport.innerHTML = "";
-        transportPrice.innerHTML = "";
-        sumTransportPrice = 0;
-        sum.innerHTML = sumChairPrice + sumColorPrice + sumPatternPrice;
-    }
-});
+     transport.addEventListener('change', function(e) {
+        if (transport.checked) {
+           transportSpan.innerText = 'Transport';
+           transportValue.innerText = this.dataset.transportPrice;
+        } else {
+           transportValue.innerText =' ';
+           transportSpan.innerText=' ';
+        }
+        summary();
+     });

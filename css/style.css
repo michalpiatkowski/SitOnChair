@@ -652,12 +652,12 @@ body {
     height: 135px;
   }
   
-  .panel_left h4 , .panel_right h4{
+  .panel_left h4 , .panel_right h4 {
     color: #24baa0;
     font-size: 23px;
   }
   
-  .panel_left span{
+  .panel_left span {
     margin-top:10px;
     font-size: 22px;
     color: #5b5a5a;
@@ -670,7 +670,7 @@ body {
     color: #24baa0;
     margin-top:10px;
   }
-  .sum_label{
+  .sum_label {
     display: inline-block;
     width: 185px;
     margin-top: 10px;
@@ -693,7 +693,7 @@ body {
     border-left: 15px solid transparent;
     border-right: 15px solid transparent;
     border-top: 15px solid #24baa0;
-    display:block;
+    display: block;
     position: absolute;
     right: 14px;
     top: 13px;
@@ -712,20 +712,20 @@ body {
     z-index: 2;
     position: absolute;
     top: 54px;
-    display:none;
+    display: none;
+  }
+
+  .visible {
+      display: block;
   }
 
   .list_panel li {
     margin-top:10px;
     cursor: pointer;
     color: #585858;
-    border: 2px solid red;
   }
   
-  .showList {
-      display: block;
-  }
-
+ 
   .title {
     height: 30px;
   }
