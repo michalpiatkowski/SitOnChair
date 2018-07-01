@@ -93,19 +93,15 @@ var chairCloth = document.getElementById('chair_cloth');
 
 var typeSpan = document.querySelector('.panel_left .title');
 var typeValue = document.querySelector('.panel_right .title');
-
 var colorSpan = document.querySelector('.panel_left .color');
 var colorValue = document.querySelector('.panel_right .color');
-
 var clothSpan = document.querySelector('.panel_left .pattern');
 var clothValue = document.querySelector('.panel_right .pattern');
-
 var transportSpan = document.querySelector('.panel_left .transport');
 var transportValue = document.querySelector('.panel_right .transport');
 
 var dropList = Array.from(document.querySelectorAll('.drop_down_list'));
 var dropListElements = Array.from(document.querySelectorAll('.drop_down_list li'));
-
 var checkbox = document.querySelector('#transport');
 
 var sum = document.querySelector('.sum strong');
@@ -120,7 +116,7 @@ function summary() {
         element.addEventListener('click', function(e) {
            this.querySelector('.list_panel').classList.toggle('visible');
         });
-     })
+    })
 
      dropListElements.forEach(function(ev){
         ev.addEventListener('click', function(e) {
@@ -146,7 +142,7 @@ function summary() {
         });
      });
 
-     transport.addEventListener('change', function(e) {
+    transport.addEventListener('change', function(e) {
         if (transport.checked) {
            transportSpan.innerText = 'Transport';
            transportValue.innerText = this.dataset.transportPrice;
@@ -154,5 +150,5 @@ function summary() {
            transportValue.innerText =' ';
            transportSpan.innerText=' ';
         }
-        summary();
-     });
+    summary();
+});
