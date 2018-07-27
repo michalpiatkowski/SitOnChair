@@ -6,4 +6,4 @@ Wykorzystane technologie:
 
 HTML5, CSS3, JavaScript
 
-https://michalpiatkowski.github.io/warsztat1/index.html
+https://michalpiatkowski.github.io/SitOnChair/
