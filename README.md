@@ -1,8 +1,6 @@
-Sit on chair
+SitOnChair
 
-Projekt strony internetowej przygotowany w ramach warsztatów w Coders Lab.
-
-Wykorzystane technologie:
+Webpage project with slider and interactive calculator.
 
 HTML5, CSS3, JavaScript
 
